@@ -26,7 +26,10 @@ namespace ConsoleApp1
 
             string readedJson = File.ReadAllText("text.json");
             List<Car> readedCars = JsonConvert.DeserializeObject<List<Car>>(readedJson);
-            Console.WriteLine(readedCars.ToString());
+            foreach (Car car in readedCars)
+            {
+                Console.WriteLine(car.ToString());
+            }
 
             double maxPrice = cars.Select(c => c.Price).Max();
             double minPrice = cars.Select(c => c.Price).Min();
